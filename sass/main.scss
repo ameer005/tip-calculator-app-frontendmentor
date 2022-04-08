@@ -1,0 +1,364 @@
+/* SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
+
+// VARIABLES
+$color-primary-main: hsl(172, 67%, 45%);
+$color-primary-dark: hsl(183, 100%, 15%);
+
+$color-gray-dark: hsl(186, 14%, 43%);
+$color-gray-nuetral: hsl(184, 14%, 56%);
+$color-gray-light: hsl(185, 41%, 84%);
+$color-gray-very-light: hsl(189, 41%, 97%);
+$color-white: hsl(0, 0%, 100%);
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+  line-height: 1;
+
+  min-height: 100vh;
+  background-color: $color-gray-light;
+  color: $color-white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Changing placeholder color
+::placeholder {
+  color: $color-gray-nuetral;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: $color-gray-nuetral;
+}
+
+::-ms-input-placeholder {
+  color: $color-gray-nuetral;
+}
+
+// Hiding sliders
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// touch hover fix
+
+.calculator {
+  max-width: 91.15rem;
+
+  margin: 1.2rem;
+}
+
+.heading-primary {
+  font-size: 2.4rem;
+  text-align: center;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+  color: $color-primary-dark;
+  margin-bottom: 4.8rem;
+
+  span {
+    display: block;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: $color-white;
+  border-radius: 1.5rem;
+}
+
+.input-box {
+  padding: 4.8rem;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    &-control {
+      label {
+        display: block;
+        font-size: 1.4rem;
+        color: $color-gray-dark;
+        margin-bottom: 0.8rem;
+      }
+
+      position: relative;
+    }
+  }
+}
+
+#bill-input,
+#people-number,
+#custom-input {
+  width: 100%;
+  font-size: 2.4rem;
+  text-align: right;
+  background-color: rgba($color-gray-light, 0.3);
+  color: $color-primary-dark;
+  font-weight: 700;
+  outline: none;
+  border: 0.2rem solid transparent;
+  border-radius: 0.7rem;
+
+  padding: 0.8rem 1.2rem;
+
+  &:hover {
+    cursor: pointer;
+    border: 0.2rem solid $color-primary-main;
+  }
+
+  &:focus {
+    border: 0.2rem solid $color-primary-main;
+  }
+}
+
+#custom-input {
+  font-size: 2rem;
+}
+
+.label-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-text {
+  color: #ff3333aa;
+  font-size: 1.4rem;
+
+  margin-bottom: 0.8rem;
+
+  display: none;
+}
+
+.icon {
+  position: absolute;
+  top: 52%;
+  left: 3%;
+}
+
+.percentage-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.btn {
+  border: none;
+  background: none;
+
+  &-percent {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background-color: $color-primary-dark;
+    color: $color-gray-very-light;
+    padding: 1.2rem;
+    border-radius: 0.7rem;
+
+    // &:hover {
+    //   cursor: pointer;
+    //   background-color: rgba($color-primary-main, 0.5);
+    //   color: $color-primary-dark;
+    // }
+  }
+}
+
+.btn2:hover {
+  cursor: pointer;
+  background-color: rgba($color-primary-main, 0.5);
+  color: $color-primary-dark;
+}
+
+.active {
+  background-color: $color-primary-main;
+  color: $color-primary-dark;
+}
+
+.output-box {
+  margin: 3.2rem;
+  margin-left: 0;
+  background-color: $color-primary-dark;
+  border-radius: 1.5rem;
+}
+
+// PER PERSON
+.tip-box {
+  padding: 5rem 3.6rem 3.6rem 3.6rem;
+}
+
+.tip-amount-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// individual
+.tip-amount-box--per-person {
+  margin-bottom: 4.8rem;
+}
+
+.tip-amount-box--total {
+  margin-bottom: 13.4rem;
+}
+
+// Global amount
+.tip-amount-text {
+  font-size: 1.6rem;
+  margin: 0.6rem;
+}
+
+.tip-person-text {
+  font-size: 1.4rem;
+  color: $color-gray-dark;
+}
+
+.tip-amount {
+  font-size: 4.4rem;
+  font-weight: 700;
+  color: $color-primary-main;
+}
+
+.btn-reset {
+  border: none;
+  background: none;
+  width: 100%;
+  background: none;
+  background-color: $color-primary-main;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: $color-primary-dark;
+
+  padding: 1.4rem;
+  border-radius: 0.9rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($color-primary-main, 5);
+  }
+}
+
+// MEDIA QUERIES
+
+// BELOW  800px
+
+@media (max-width: 50em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .btn-percent {
+    font-size: 2rem;
+  }
+
+  .tip-amount-text {
+    font-size: 1.6rem;
+  }
+
+  .tip-person-text {
+    font-size: 1.4rem;
+  }
+
+  .tip-amount {
+    font-size: 3.2rem;
+  }
+}
+
+// BELOW 600px
+
+@media (max-width: 38em) {
+  .calculator {
+    margin: 0;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  // .tip-amount-box--per-person {
+  //   // margin-bottom: 3.2rem;
+  // }
+
+  .tip-amount-box--total {
+    margin-bottom: 4.8rem;
+  }
+
+  .output-box {
+    margin: 3.2rem;
+    margin-top: 0;
+  }
+
+  .btn-percent {
+    font-size: 2rem;
+  }
+
+  .tip-amount-text {
+    font-size: 1.8rem;
+  }
+
+  .tip-person-text {
+    font-size: 1.6rem;
+  }
+
+  .tip-amount {
+    font-size: 3.6rem;
+  }
+}
+
+// Below 460px
+@media (max-width: 29em) {
+  .percentage-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tip-amount-box--per-person {
+    margin-bottom: 3.2rem;
+  }
+
+  .tip-amount-box--total {
+    margin-bottom: 3.6rem;
+  }
+
+  .tip-amount-text {
+    font-size: 1.6rem;
+  }
+
+  .tip-person-text {
+    font-size: 1.4rem;
+  }
+
+  .tip-amount {
+    font-size: 3.2rem;
+  }
+}
