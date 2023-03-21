@@ -44,16 +44,18 @@ const removeActiveClass = function () {
 
 // rendering data funvtion
 const displayingTipData = function () {
-  totalTip = calculateTip(Number(inputBill.value), percent);
-
-  tipTotalEl.textContent = `$${totalTip.toFixed(2)}`;
-
   if (Number(inputPeople.value) > 0) {
+    totalTip = calculateTip(Number(inputBill.value), percent);
+    totalVal = totalTip + inputBill.value / Number(inputPeople.value);
+
     tipPersonEl.textContent = `$${(
       totalTip / Number(inputPeople.value)
     ).toFixed(2)}`;
+
+    tipTotalEl.textContent = `$${totalVal.toFixed(2)}`;
   } else {
     tipPersonEl.textContent = `$${(0).toFixed(2)}`;
+    tipTotalEl.textContent = `$${(0).toFixed(2)}`;
   }
 };
 
@@ -75,6 +77,7 @@ containerPrcnt.addEventListener("click", function (e) {
 inputCustomPrcnt.addEventListener("input", function (e) {
   // removing and adding active class
   removeActiveClass();
+
   e.target.classList.add("active");
 
   percent = inputCustomPrcnt.value;
