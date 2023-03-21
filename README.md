@@ -4,7 +4,7 @@
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://ameer005.github.io/tip-calculator-app-frontendmentor/](https://ameer005.github.io/tip-calculator-app-frontendmentor/)
 
 ### Built with
 
